@@ -5,7 +5,6 @@ Email: niravjoshi87@gmail.com
 File: scss
 */
 
-
 /*******************
 Main sidebar
 ******************/
@@ -21,7 +20,7 @@ Main sidebar
     box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
 }
 
-.fix-sidebar .left-sidebar{
+.fix-sidebar .left-sidebar {
     position: fixed;
 }
 /*******************
@@ -29,10 +28,9 @@ use profile section
 ******************/
 
 .user-profile {
-    
     position: relative;
-    background-size:cover;
-    
+    background-size: cover;
+
     .profile-img {
         width: 50px;
         margin-left: 30px;
@@ -99,15 +97,15 @@ use profile section
         padding: 5px 0px;
         position: relative;
         > a {
-            color: $white!important;
+            color: $white !important;
             width: 100%;
             padding: 6px 30px;
             background: rgba(0, 0, 0, 0.5);
             display: block;
-            &:after{
+            &:after {
                 position: absolute;
                 right: 20px;
-                top:20px;
+                top: 20px;
             }
         }
     }
@@ -119,7 +117,6 @@ use profile section
     }
 }
 
-
 /*******************
 sidebar footer
 ******************/
@@ -129,7 +126,7 @@ sidebar footer
     z-index: 10;
     bottom: 0px;
     left: 0px;
-    transition:0.2s ease-out;
+    transition: 0.2s ease-out;
     width: 240px;
     background: $sidebar;
     border-top: 1px solid $border;
@@ -142,14 +139,12 @@ sidebar footer
     }
 }
 
-
 /*******************
 sidebar navigation
 ******************/
 
 .scroll-sidebar {
     padding-bottom: 60px;
-    
 }
 
 .collapse.in {
@@ -164,8 +159,7 @@ sidebar navigation
         padding: 0px;
         li {
             list-style: none;
-            
-            
+
             a {
                 color: $sidebar-text;
                 padding: 8px 35px 8px 15px;
@@ -184,23 +178,22 @@ sidebar navigation
             }
             ul {
                 padding-left: 5px;
-                padding-top: 10px; 
+                padding-top: 10px;
                 li a {
                     padding: 10px 35px 10px 15px;
                 }
                 ul {
                     padding-left: 15px;
-                    
                 }
             }
             &.nav-small-cap {
                 font-size: 12px;
                 margin-bottom: 0px;
                 padding: 14px 14px 14px 20px;
-                color: $dark; 
+                color: $dark;
                 font-weight: 500;
             }
-            &.nav-devider{
+            &.nav-devider {
                 height: 1px;
                 background: $border;
                 display: block;
@@ -220,17 +213,15 @@ sidebar navigation
         }
     }
     > ul > li > a {
-        
         &.active,
         &:hover {
-            
             i {
                 color: $themecolor-alt;
             }
         }
         i {
             width: 27px;
-            height: 27px;                                                                                                                                                                           
+            height: 27px;
             font-size: 21px;
             display: inline-block;
             vertical-align: middle;
@@ -248,13 +239,24 @@ sidebar navigation
     }
 }
 
+.card-no-border .sidebar-nav > ul > li > a.active {
+    color: #ffffff;
+    background: #26c6da;
+    i {
+        color: #ffffff;
+    }
+    &:after {
+        border-color: #ffffff;
+    }
+}
+
 .sidebar-nav .has-arrow {
     position: relative;
     &::after {
         position: absolute;
         content: '';
-        width: .55em;
-        height: .55em;
+        width: 0.55em;
+        height: 0.55em;
         border-width: 1px 0 0 1px;
         border-style: solid;
         border-color: $sidebar-text;
@@ -268,29 +270,28 @@ sidebar navigation
         -o-transform-origin: top;
         transform-origin: top;
         top: 47%;
-        -webkit-transition: all .3s ease-out;
-        -o-transition: all .3s ease-out;
-        transition: all .3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
     }
 }
 
 .sidebar-nav .active > .has-arrow::after,
 .sidebar-nav li > .has-arrow.active::after,
-.sidebar-nav .has-arrow[aria-expanded="true"]::after {
+.sidebar-nav .has-arrow[aria-expanded='true']::after {
     -webkit-transform: rotate(-135deg) translate(0, -50%);
     -ms-transform: rotate(-135deg) translate(0, -50%);
     -o-transform: rotate(-135deg) translate(0, -50%);
     top: 45%;
-    width: .58em;
+    width: 0.58em;
     transform: rotate(-135deg) translate(0, -50%);
 }
-
 
 /****************
 When click on sidebar toggler and also for tablet
 *****************/
 
-@media(min-width:768px) {
+@media (min-width: 768px) {
     .mini-sidebar .sidebar-nav #sidebarnav li {
         position: relative;
     }
@@ -309,7 +310,7 @@ When click on sidebar toggler and also for tablet
     }
     .mini-sidebar .sidebar-nav #sidebarnav > li:hover > ul {
         height: auto !important;
-        
+
         overflow: auto;
     }
     .mini-sidebar .sidebar-nav #sidebarnav > li:hover > ul,
@@ -327,15 +328,15 @@ When click on sidebar toggler and also for tablet
             padding-bottom: 15px;
             width: 60px;
             margin-bottom: 7px;
-            .profile-img{
+            .profile-img {
                 padding: 15px 0 0 0;
                 margin: 0px 0 0 6px;
-                &:before{
-                    top:15px;
+                &:before {
+                    top: 15px;
                 }
             }
         }
-        .scroll-sidebar{
+        .scroll-sidebar {
             padding-bottom: 0px;
             position: absolute;
         }
@@ -345,11 +346,13 @@ When click on sidebar toggler and also for tablet
         .user-profile .profile-text {
             display: none;
         }
-        .nav-devider{
+        .nav-devider {
             width: 50px;
-            }
-        .sidebar-nav{ background: transparent;}
-        .sidebar-nav #sidebarnav > li > a{
+        }
+        .sidebar-nav {
+            background: transparent;
+        }
+        .sidebar-nav #sidebarnav > li > a {
             padding: 9px 15px;
             width: 50px;
         }
@@ -365,25 +368,28 @@ When click on sidebar toggler and also for tablet
                 display: inline;
             }
         }
-        .sidebar-nav #sidebarnav > li.active > a{
-            border-color:transparent;
-            &.active{
-                border-color:$themecolor;
+        .sidebar-nav #sidebarnav > li.active > a {
+            border-color: transparent;
+            &.active {
+                border-color: $themecolor;
             }
         }
     }
 }
-@media(max-width:767px) {
-    .mini-sidebar{
-        .left-sidebar{position: fixed;}
-        .left-sidebar, .sidebar-footer{
-            left:-240px;
+@media (max-width: 767px) {
+    .mini-sidebar {
+        .left-sidebar {
+            position: fixed;
         }
-        &.show-sidebar{
-           .left-sidebar, .sidebar-footer{
-                left:0px;
-            } 
+        .left-sidebar,
+        .sidebar-footer {
+            left: -240px;
+        }
+        &.show-sidebar {
+            .left-sidebar,
+            .sidebar-footer {
+                left: 0px;
+            }
         }
     }
-    
 }

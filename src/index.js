@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom';
 
 import '../styles/style.scss';
 
-class App extends React.Component {
+import App from 'ui/App';
+
+class Root extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <div>This is an App</div>
+            <App />
         );
     }
 }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<Root/>, document.getElementById('app'));

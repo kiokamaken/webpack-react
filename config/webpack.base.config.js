@@ -25,10 +25,6 @@ module.exports = env => {
 						use: [PLATFORM === 'production' ? MiniCssExtractPlugin.loader : 'style-loader', "css-loader", "sass-loader"]
 					},
 					{
-						test: /\.svg$/,
-						loader: 'svg-inline-loader'
-					},
-					{
 						test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
 						use: [{
 							loader: 'file-loader',
@@ -37,6 +33,19 @@ module.exports = env => {
 								outputPath: 'fonts/'
 							}
 						}]
+					},
+					{
+						test: /\.(gif|png|jpe?g|svg)$/i,
+						use: [
+							'file-loader',
+							{
+								loader: 'image-webpack-loader',
+								options: {
+									bypassOnDebug: true, // webpack@1.x
+									disable: true, // webpack@2.x and newer
+								},
+							},
+						]
 					}
 				]
 			},
@@ -50,7 +59,13 @@ module.exports = env => {
 					'process.env.PLATFORM': JSON.stringify(PLATFORM)
 				}),
 				new CopyWebpackPlugin([ { from: 'static' } ]),
-			]
+            ],
+            resolve: {
+                modules: [
+                    'node_modules',
+                    APP_DIR
+                ]
+            }
 		}
 	]);
 };
