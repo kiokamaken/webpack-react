@@ -27,16 +27,8 @@ class App extends Component {
                             </div>
                         </div>
 
-                        <div className="row">
-                            <div className="col-lg-4 col-md-5">
-                                <DeviceStatistics />
-                            </div>
-                            <div className="col-lg-8 col-md-5">
-                                <SaleOverview />
-                            </div>
-                            <div className="col-lg-12">
-                                <SkillSet />
-                            </div>
+                        <div className='row'>
+                            {this.props.children}
                         </div>
                     </div>
                     <Footer />
