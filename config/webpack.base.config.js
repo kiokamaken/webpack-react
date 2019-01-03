@@ -10,7 +10,8 @@ const APP_DIR = path.resolve(__dirname, '../src');
 module.exports = env => {
 	const { PLATFORM, VERSION } = env;
 	return merge([
-		{
+        {
+            devtool: 'source-map',
 			entry: ['@babel/polyfill', APP_DIR],
 			module: {
 				rules: [{
@@ -22,10 +23,13 @@ module.exports = env => {
 					},
 					{
 						test: /\.scss$/,
-						use: [PLATFORM === 'production' ? MiniCssExtractPlugin.loader : 'style-loader', "css-loader", "sass-loader"]
+                        use: [PLATFORM === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
+                            "css-loader",
+                            "sass-loader"
+                        ]
 					},
 					{
-						test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+						test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
 						use: [{
 							loader: 'file-loader',
 							options: {
@@ -37,13 +41,15 @@ module.exports = env => {
 					{
 						test: /\.(gif|png|jpe?g|svg)$/i,
 						use: [
-							'file-loader',
 							{
-								loader: 'image-webpack-loader',
-								options: {
-									bypassOnDebug: true, // webpack@1.x
-									disable: true, // webpack@2.x and newer
-								},
+                                loader: 'file-loader',
+                                options: {
+                                    name: '[name].[ext]',
+                                    outputPath: 'assets/'
+                                }
+                            },
+							{
+								loader: 'image-webpack-loader'
 							},
 						]
 					}
@@ -57,10 +63,14 @@ module.exports = env => {
 				new webpack.DefinePlugin({ 
 					'process.env.VERSION': JSON.stringify(VERSION),
 					'process.env.PLATFORM': JSON.stringify(PLATFORM)
-				}),
-				new CopyWebpackPlugin([ { from: 'static' } ]),
+                }),
+                new MiniCssExtractPlugin(),
+				new CopyWebpackPlugin([ { from: 'static', to: 'static' } ]),
             ],
             resolve: {
+                alias: {
+                    bootstrap: path.resolve(__dirname, '../node_modules/bootstrap')
+                },
                 modules: [
                     'node_modules',
                     APP_DIR

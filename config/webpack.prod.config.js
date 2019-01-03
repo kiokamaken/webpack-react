@@ -1,6 +1,8 @@
 const merge = require('webpack-merge');
+const path = require('path');
 
 // Plugins
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -11,7 +13,7 @@ const baseConfig = require('./webpack.base.config');
 const production = env => {
     return merge([{
         optimization: {
-            runtimeChunk: 'single',
+            // runtimeChunk: 'single',
             // splitChunks: {
             //     cacheGroups: {
             //         vendor: {
@@ -24,8 +26,11 @@ const production = env => {
             minimizer: [new UglifyJsPlugin()],
         },
         plugins: [
+            new CleanWebpackPlugin(['dist'], {
+                root: path.join(__dirname, '..')
+            }),
             new MiniCssExtractPlugin(),
-            new OptimizeCssAssetsPlugin(),
+            // new OptimizeCssAssetsPlugin(),
             new Visualizer({
                 filename: './statistics.html'
             })
@@ -34,5 +39,5 @@ const production = env => {
 }
 
 module.exports = env => {
-    return merge(baseConfig(env), prodConfiguration(env));
+    return merge(baseConfig(env), production(env));
 }
