@@ -1,8 +1,20 @@
-export default [
-    {
-        title: 'Dashboard',
-        expandable: false,
-        isLink: true,
-        url: '/'
-    }
-]
+export default {
+    SIDEBARS: [
+        {
+            title: 'Dashboard',
+            expandable: false,
+            effectClasses: 'waves-effect waves-dark',
+            iconClasses: 'mdi mdi-gauge',
+            isLink: true,
+            url: '/'
+        },
+        {
+            title: 'Profile',
+            expandable: false,
+            effectClasses: 'waves-effect waves-dark',
+            iconClasses: 'mdi mdi-gauge',
+            isLink: true,
+            url: '/profile'
+        }
+    ]
+};

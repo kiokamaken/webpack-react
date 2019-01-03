@@ -14,6 +14,12 @@ File: scss
     width: 100%;
 }
 
+.blur-background {
+    background: url('../static/images/background/blur-wide.jpg');
+    background-position: top 100%;
+    background-repeat: no-repeat;
+}
+
 .boxed #main-wrapper {
     width: 100%;
     max-width: 1300px;

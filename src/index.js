@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 
 import '../styles/style.scss';
 
-import Router from './ui/Router';
-import App from './ui/App';
+import Router from 'ui/Router';
 
 class Root extends React.Component {
     constructor(props) {
@@ -13,9 +12,7 @@ class Root extends React.Component {
 
     render() {
         return (
-            <App>
-                <Router />
-            </App>
+            <Router />
         );
     }
 }
