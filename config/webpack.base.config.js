@@ -47,10 +47,7 @@ module.exports = env => {
                                     name: '[name].[ext]',
                                     outputPath: 'assets/'
                                 }
-                            },
-							{
-								loader: 'image-webpack-loader'
-							},
+                            }
 						]
 					}
 				]
